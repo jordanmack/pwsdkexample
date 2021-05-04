@@ -1,7 +1,7 @@
 # PWSDKTEST
 
 ```
-npm i # Install dependencies.
-npm start # Launch dev server.
-npm run build # Build project.
+npm i			# Install dependencies.
+npm run build 	# Build project.
+npm start		# Launch dev server.
 ```
