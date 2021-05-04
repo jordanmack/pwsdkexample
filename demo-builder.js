@@ -108,7 +108,7 @@ export default class DemoBuilder extends Builder
 			// Recalculate the input/output capacity amounts and the change cell amount.
 			inputCapacity = inputCells.reduce((a, c)=>a.add(c.capacity), Amount.ZERO);
 			outputCapacity = outputCells.reduce((a, c)=>a.add(c.capacity), Amount.ZERO);
-			const changeCapacity = inputCapacity.sub(outputCapacity);
+			const changeCapacity = inputCapacity.sub(outputCapacity).sub(fee);
 
 			// Add the change cell.
 			const changeCell = new Cell(changeCapacity, address.toLockScript());

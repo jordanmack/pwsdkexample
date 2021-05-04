@@ -14,8 +14,6 @@ export default class DemoCollector extends Collector
 	{
 		this.cells = [];
 
-		const lockScript = address.toLockScript();
-
 		const indexerQuery =
 		{
 			id: 2,
@@ -24,7 +22,7 @@ export default class DemoCollector extends Collector
 			params: 
 			[
 				{
-					script: lockScript.serializeJson(),
+					script: address.toLockScript().serializeJson(),
 					script_type: "lock",
 				},
 				"asc",
@@ -55,12 +53,15 @@ export default class DemoCollector extends Collector
 			const outPoint = OutPoint.fromRPC(rawCell.out_point);
 			const outputData = rawCell.output_data;
 
-			const cell = new Cell(amount, lockScript, typeScript, outPoint, outputData);
-			this.cells.push(cell);
-
-			amountTotal = amountTotal.add(amount)
-			if(amountTotal.gte(neededAmount))
-				break;
+			if(typeScript === undefined || typeScript === null)
+			{
+				const cell = new Cell(amount, lockScript, typeScript, outPoint, outputData);
+				this.cells.push(cell);
+	
+				amountTotal = amountTotal.add(amount)
+				if(amountTotal.gte(neededAmount))
+					break;
+			}
 		}
 
 		if(amountTotal.lt(neededAmount))
