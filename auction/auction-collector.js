@@ -1,6 +1,6 @@
 import {Amount, AmountUnit, Cell, Collector, OutPoint, Script} from "@lay2/pw-core";
 
-export default class DemoCollector extends Collector
+export default class AuctionCollector extends Collector
 {
 	indexerUrl = null;
 

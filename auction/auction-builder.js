@@ -1,6 +1,6 @@
 import PWCore, {Amount, AmountUnit, Builder, Cell, RawTransaction, Transaction} from "@lay2/pw-core";
 
-export default class DemoBuilder extends Builder
+export default class AuctionBuilder extends Builder
 {
 	constructor()
 	{

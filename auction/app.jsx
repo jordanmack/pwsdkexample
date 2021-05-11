@@ -3,8 +3,8 @@ import {useState, useEffect} from "react";
 import * as ReactDOM from "react-dom";
 
 import PWCore, {Address, AddressType, Amount, AmountUnit, EthProvider, SUDT} from "@lay2/pw-core";
-import DemoCollector from "./demo-collector.js";
-import DemoBuilder from "./demo-builder.js";
+import AuctionCollector from "./auction-collector.js";
+import AuctionBuilder from "./auction-builder.js";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,7 @@ const CKB_INDEXER_URL = "http://3.236.254.238:8116";
 async function initPwCore()
 {
 	const provider = new EthProvider();
-	const collector = new DemoCollector(CKB_INDEXER_URL);
+	const collector = new AuctionCollector(CKB_INDEXER_URL);
 	const pwCore = await new PWCore(CKB_RPC_URL).init(provider, collector);
 
 	return pwCore;
@@ -36,7 +36,7 @@ async function getBalances(setData)
 
 async function burnSudt(pwCore, amount)
 {
-	const builder = new DemoBuilder();
+	const builder = new AuctionBuilder();
 
 	const options =
 	{
@@ -57,7 +57,7 @@ async function burnSudt(pwCore, amount)
 
 async function mintSudt(pwCore, amount)
 {
-	const builder = new DemoBuilder();
+	const builder = new AuctionBuilder();
 
 	const options =
 	{

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node node_modules/http-server/bin/http-server",
-    "start": "node ./node_modules/nodemon/bin/nodemon.js --ignore out.js --ignore *.css --ignore *.map --exec npm run build",
+    "start": "node ./node_modules/nodemon/bin/nodemon.js -e js,jsx,mjs,scss --ignore out.js --ignore *.css --ignore *.map --exec npm run build",
     "build": "node esbuild.config.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
