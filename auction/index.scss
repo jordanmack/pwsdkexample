@@ -3,7 +3,7 @@ html
 	font-size: 14px;
 }
 
-table
+table.balances
 {
 	td:first-child
 	{
@@ -16,4 +16,20 @@ span.spacer
 {
 	display: inline-block;
 	width: 10px; 
+}
+
+table.addresses, table.orders
+{
+	td, th
+	{
+		padding: 5px;
+		padding-left: 0;
+		text-align: left;
+	}
+}
+
+.sweep-error
+{
+	color: red;
+	padding-bottom: 10px;
 }

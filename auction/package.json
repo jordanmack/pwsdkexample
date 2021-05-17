@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node node_modules/http-server/bin/http-server",
-    "start": "node ./node_modules/nodemon/bin/nodemon.js -e js,jsx,mjs,scss --ignore out.js --ignore *.css --ignore *.map --exec npm run build",
     "build": "node esbuild.config.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node node_modules/http-server/bin/http-server",
+    "watch": "node ./node_modules/nodemon/bin/nodemon.js -e js,jsx,mjs,scss --ignore out.js --ignore *.css --ignore *.map --exec npm run build",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run watch\""
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "react-toastify": "^7.0.4"
   },
   "devDependencies": {
+    "concurrently": "^6.1.0",
     "http-server": "^0.12.3"
   }
 }
